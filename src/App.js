@@ -5,6 +5,7 @@ import Homepage from './switch/Homepage/Homepage';
 import {Switch, Route} from 'react-router-dom'
 import Articles from './switch/Articles/Articles';
 import Topics from './switch/Topics/Topics';
+import SingleArticle from './switch/SingleArticle/SingleArticle';
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
       </Route>
       <Route exact path="/articles/:topic">
         <Topics />
+      </Route>
+      <Route exact path="/articles/id/:id">
+        <SingleArticle />
       </Route>
       </Switch>
     </div>

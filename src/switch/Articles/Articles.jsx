@@ -11,6 +11,7 @@ const Articles = () => {
   if (allArticles)
     return (
       <section>
+        Displaying all articles:
         <ul>
           {Array.isArray(allArticles)}
           {allArticles.map((article) => {

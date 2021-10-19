@@ -14,6 +14,7 @@ const Topics = () => {
   if (topicArticles)
     return (
       <section>
+        <p>Results for '{topic}'</p>
         <ul>
           {topicArticles.map((article) => {
             return (
