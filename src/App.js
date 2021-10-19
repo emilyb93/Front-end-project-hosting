@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import Homepage from './switch/Homepage/Homepage';
 import {Switch, Route} from 'react-router-dom'
 import Articles from './switch/Articles/Articles';
+import Topics from './switch/Topics/Topics';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
       </Route>
       <Route exact path="/articles">
         <Articles />
+      </Route>
+      <Route exact path="/articles/:topic">
+        <Topics />
       </Route>
       </Switch>
     </div>

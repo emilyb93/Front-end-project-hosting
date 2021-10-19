@@ -1,21 +1,24 @@
-import { useArticles } from "../../utils/Articles";
+import React from "react";
+import { useParams } from "react-router";
+import { useTopics } from "../../utils/Topics";
 import { slugImages } from "../../utils/SlugImages";
 import { Link } from "react-router-dom";
 
-const Articles = () => {
-  const { allArticles, loading, err } = useArticles();
+const Topics = () => {
+  const { topic } = useParams();
+  const { topicArticles, loading, err } = useTopics(topic);
 
-  console.log(allArticles, "All");
-  if (err) return <p>{err.status}</p>;
+  //   if (err.status === 404) return <p>404 - Page Not Found</p>;
+  if (err) return <p>Sorry, we couldn't find that one!</p>;
   if (loading) return <p>Loading. . .</p>;
-  if (allArticles)
+  if (topicArticles)
     return (
       <section>
         <ul>
-          {Array.isArray(allArticles)}
-          {allArticles.map((article) => {
+          {topicArticles.map((article) => {
             return (
               <li>
+                {" "}
                 <Link to={`/articles/id/${article.article_id}`}>
                   <img
                     alt={article.title}
@@ -33,4 +36,4 @@ const Articles = () => {
     );
 };
 
-export default Articles;
+export default Topics;
