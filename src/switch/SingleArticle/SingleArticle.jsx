@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { useParams } from "react-router";
-import { useComments, Votes, VotesDown, VotesUp } from "../../utils/Comments";
+import {
+  PostComment,
+  useComments,
+  Votes,
+  VotesDown,
+  VotesUp,
+} from "../../utils/Comments";
 import { ArticleVotes, useSingleArticle } from "../../utils/SingleArticle";
 import { slugImages } from "../../utils/SlugImages";
 import { handleVotes } from "../../utils/Comments";
@@ -26,6 +32,7 @@ const SingleArticle = () => {
       </section>
       <section>
         <h3>Comments</h3>
+        <PostComment />
         <ul>
           {comments.map((comment) => {
             return (

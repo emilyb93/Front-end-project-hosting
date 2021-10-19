@@ -76,5 +76,17 @@ onClick={() => {
 </>
     }
 
+export const PostComment = ()=>{
+const [newComment, setNewComment] = useState()
+
+
+return <form>
+    <input type="text-area" rows="10" cols="50" />
+    <button>Post</button>
+</form>
+
+
+}
+
     
 
