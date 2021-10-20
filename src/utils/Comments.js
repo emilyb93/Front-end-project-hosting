@@ -87,7 +87,6 @@ const handleNewComment = (newComment, article_id, user)=>{
             "body": newComment
         }
     })
-    // window.location.reload(false)
 
 }
 
@@ -112,7 +111,6 @@ return <form onSubmit={async (e)=>{
         
     })
     handleNewComment(newComment, article_id, user)
-    // window.location.reload(false)
     e.preventDefault()
 }}>
     <input id="comment-input" type="text-area" rows="10" cols="50" onChange={(e)=>{

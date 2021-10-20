@@ -37,7 +37,6 @@ const SingleArticle = () => {
           {comments.map((comment) => {
             return (
               <li key={comment.comment_id}>
-                <p>comment-id: {comment.comment_id}</p>
                 <p>Author: {comment.author} </p>
                 <p>{comment.body}</p>
                 <Votes comment_id={comment.comment_id} votes={comment.votes} />

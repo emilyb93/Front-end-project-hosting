@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchLatestArticles } from "../../utils/Homepage";
 import { slugImages } from "../../utils/SlugImages";
 import "./Homepage.css";
+import { Link } from "react-router-dom";
 
 const Homepage = () => {
   const [homepageArticles, sethomepageArticle] = useState([]);
@@ -23,14 +24,16 @@ const Homepage = () => {
         {homepageArticles.map((article) => {
           return (
             <li className="article-list-item">
-              <img
-                width="90%"
-                src={slugImages[article.topic]}
-                alt={article.title}
-              />
-              <h2>{article.title}</h2>
-              <p>Topic: {article.topic}</p>
-              <p>Created at: {article.created_at}</p>
+              <Link to={`/articles/id/${article.article_id}`}>
+                <img
+                  width="90%"
+                  src={slugImages[article.topic]}
+                  alt={article.title}
+                />
+                <h2>{article.title}</h2>
+                <p>Topic: {article.topic}</p>
+                <p>Created at: {article.created_at}</p>
+              </Link>
             </li>
           );
         })}
