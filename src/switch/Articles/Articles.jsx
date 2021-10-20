@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Articles = () => {
   const { allArticles, loading, err } = useArticles();
 
-  console.log(allArticles, "All");
+  // console.log(allArticles, "All");
   if (err) return <p>{err.status}</p>;
   if (loading) return <p>Loading. . .</p>;
   if (allArticles)

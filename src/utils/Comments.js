@@ -27,7 +27,7 @@ export const useComments = (id)=>{
     }catch(err){
         console.log(err)
     }
-    return {comments, commLoading, commErr, }
+    return {comments, commLoading, commErr, setComments }
 
 
 }
@@ -74,14 +74,50 @@ onClick={() => {
 ↑
 </button>
 </>
-    }
+}
 
-export const PostComment = ()=>{
+
+const handleNewComment = (newComment, article_id, user)=>{
+
+    axios({
+        method: "post",
+        url: `https://news-server-project.herokuapp.com/api/articles/${article_id}/comments`,
+        data : {
+            "username": user,
+            "body": newComment
+        }
+    })
+    // window.location.reload(false)
+
+}
+
+
+
+export const PostComment = ({article_id, loggedIn, user, setComments})=>{
 const [newComment, setNewComment] = useState()
 
 
-return <form>
-    <input type="text-area" rows="10" cols="50" />
+
+return <form onSubmit={async (e)=>{
+    setComments((currComments)=>{
+        const newComm = {
+        "author": user,
+        "article_id": article_id,
+        "votes": 0,
+        "created_at": Date(Date.now()),
+        "body": newComment
+      }
+      return [newComm, ...currComments]
+
+        
+    })
+    handleNewComment(newComment, article_id, user)
+    // window.location.reload(false)
+    e.preventDefault()
+}}>
+    <input id="comment-input" type="text-area" rows="10" cols="50" onChange={(e)=>{
+        setNewComment(e.target.value)
+    }}/>
     <button>Post</button>
 </form>
 
