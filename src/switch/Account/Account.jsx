@@ -10,9 +10,18 @@ const Account = () => {
   if (loggedIn)
     return (
       <>
-        <img src={avatar} />
+        <img src={avatar} alt="avatar" />
         <p>Logged in as {user}</p>
         <p>Name: {trueName}</p>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setUser(null);
+            localStorage.clear();
+          }}
+        >
+          Log out
+        </button>
       </>
     );
 
@@ -33,6 +42,7 @@ const Account = () => {
                   console.log("failed");
                 });
             console.log("user set to", user);
+            setUserInput("");
             e.preventDefault();
           }}
         >
