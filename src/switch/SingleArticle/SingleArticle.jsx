@@ -4,6 +4,7 @@ import { PostComment, useComments, Votes } from "../../utils/Comments";
 import { UserContext } from "../../utils/Context";
 import { ArticleVotes, useSingleArticle } from "../../utils/SingleArticle";
 import { slugImages } from "../../utils/SlugImages";
+import "./SingleArticle.css";
 
 const SingleArticle = () => {
   const { id } = useParams();
@@ -20,28 +21,34 @@ const SingleArticle = () => {
           src={slugImages[article.topic]}
           alt={article.title}
           width="100vw"
+          className="article-image"
         />
         <h2>{article.title}</h2>
-        <p>{article.body}</p>
+        <p className="article-body">{article.body}</p>
         <ArticleVotes article_id={article.article_id} votes={article.votes} />
       </section>
-      <section>
+      <section className="comment-container">
         <h3>Comments</h3>
         <PostComment
           article_id={id}
           loggedIn={loggedIn}
           user={user}
           setComments={setComments}
+          className="post-comment"
         />
-        <ul>
+        <ul className="comments-list">
           {comments.map((comment) => {
             return (
-              <li key={comment.comment_id}>
-                <p>Author: {comment.author} </p>
-                <p>{comment.body}</p>
-                <Votes comment_id={comment.comment_id} votes={comment.votes} />
+              <li key={comment.comment_id} className="comment-card">
+                <p className="comment-author">Author: {comment.author} </p>
+                <p className="comment-text">{comment.body}</p>
+                <p>{Date(comment.created_at)}</p>
 
-                <p>{comment.created_at}</p>
+                <Votes
+                  className="votes"
+                  comment_id={comment.comment_id}
+                  votes={comment.votes}
+                />
               </li>
             );
           })}

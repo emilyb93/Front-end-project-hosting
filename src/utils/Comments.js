@@ -49,7 +49,7 @@ export const Votes = ({comment_id, votes})=>{
 
 
 return<>
-<p> {votes + voteChange}</p> <button
+<p className="vote-count"> {votes + voteChange}</p> <button className="vote-button-down"
 onClick={() => {
   setVoteChange((voteChange) => {
     return voteChange - 1;
@@ -61,7 +61,7 @@ onClick={() => {
 >
 ↓
 </button>
-<button
+<button className="vote-button-up"
 onClick={() => {
   setVoteChange((voteChange) => {
     return voteChange + 1;
@@ -115,8 +115,10 @@ return <form onSubmit={async (e)=>{
 }}>
     <input id="comment-input" type="text-area" rows="10" cols="50" onChange={(e)=>{
         setNewComment(e.target.value)
-    }}/>
-    <button>Post</button>
+    }}
+    required={true}/>
+    <button disabled={!loggedIn}>Post</button>
+    {!loggedIn && <p>Please Log in to post comments.</p> }
 </form>
 
 

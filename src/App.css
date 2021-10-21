@@ -6,6 +6,7 @@
   margin-top: 15vh;
   background-color: #f4f4f9ea;
   color: #141415;
+  min-height: 85vh;
 }
 
 .article-card {
