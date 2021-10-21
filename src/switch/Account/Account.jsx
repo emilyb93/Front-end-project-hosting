@@ -9,8 +9,8 @@ const Account = () => {
 
   if (loggedIn)
     return (
-      <>
-        <img src={avatar} alt="avatar" />
+      <section className="account-page" scroll="no">
+        <img src={avatar} alt="avatar" className="avatar" />
         <p>Logged in as {user}</p>
         <p>Name: {trueName}</p>
         <button
@@ -22,7 +22,7 @@ const Account = () => {
         >
           Log out
         </button>
-      </>
+      </section>
     );
 
   if (!loggedIn)

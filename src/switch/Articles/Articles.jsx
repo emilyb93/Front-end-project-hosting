@@ -13,6 +13,7 @@ const Articles = () => {
     return (
       <section>
         Displaying articles from:
+        {/* This is the select for the topics */}
         <select
           name="topics"
           id="topic-selector"
@@ -20,10 +21,17 @@ const Articles = () => {
             history.push(`/articles${e.target.value}`);
           }}
         >
-          <option value="">All</option>
+          <option value="/all">All</option>
           {allSlugs.map((slug) => {
             return <option value={`/${slug.slug}`}>{slug.slug}</option>;
           })}
+        </select>
+        {/* This is the select for the sort by options */}
+        <p>Sort articles by: </p>
+        <select>
+          <option value="created_at">Date</option>
+          <option value="comment_count">Comment Count</option>
+          <option value="votes">Votes</option>
         </select>
         <ul>
           {Array.isArray(allArticles)}

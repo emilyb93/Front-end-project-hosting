@@ -40,6 +40,7 @@ const SingleArticle = () => {
                 <p>Author: {comment.author} </p>
                 <p>{comment.body}</p>
                 <Votes comment_id={comment.comment_id} votes={comment.votes} />
+
                 <p>{comment.created_at}</p>
               </li>
             );

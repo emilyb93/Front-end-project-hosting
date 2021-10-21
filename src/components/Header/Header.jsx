@@ -4,44 +4,67 @@ import "./Header.css";
 
 const Header = () => {
   const [enableMenu, setEnableMenu] = useState(false);
+
   return (
-    <header>
-      <h1 className="header-text">NC NEWS</h1>
-      <Link to="/account">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
-          width="50rem"
-          alt="account-link"
-        />
-      </Link>
-      <button
-        className="nav-button"
-        onClick={(e) => {
-          e.preventDefault();
-          setEnableMenu(true);
-        }}
-      >
-        =
-      </button>
+    <header className="header-container">
+      <div className="header-bar">
+        <h1 className="header-text">NC NEWS</h1>
+        <Link to="/account">
+          <img
+            class="profile-pic"
+            src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
+            width="50rem"
+            alt="account-link"
+          />
+        </Link>
+        <button
+          className="nav-button"
+          onClick={(e) => {
+            e.preventDefault();
+            setEnableMenu(!enableMenu);
+          }}
+        >
+          {!enableMenu ? "≡" : "x"}
+        </button>
+      </div>
       {enableMenu && (
-        <ul className="menu">
-          <li id="menu-close">
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setEnableMenu(false);
-              }}
-            >
-              X
-            </button>
-          </li>
-          <li>
-            <Link to="/articles">Articles</Link>
-          </li>
-          <li>
-            <Link to="/account">Account</Link>
-          </li>
-        </ul>
+        <nav className="navbar">
+          <ul>
+            <li className="nav-list">
+              <Link
+                className="nav-link"
+                to=""
+                onClick={() => {
+                  setEnableMenu(false);
+                }}
+              >
+                <button class="nav-link"> Home </button>
+              </Link>
+            </li>
+            <li className="nav-list">
+              <Link
+                className="nav-link"
+                to="/articles/all"
+                onClick={() => {
+                  setEnableMenu(false);
+                }}
+              >
+                <button class="nav-link">Articles</button>
+              </Link>
+            </li>
+            <li className="nav-list">
+              <Link
+                className="nav-link"
+                to="/account"
+                onClick={() => {
+                  setEnableMenu(false);
+                }}
+              >
+                <button class="nav-link">Account</button>
+              </Link>
+            </li>
+          </ul>
+        </nav>
       )}
     </header>
   );

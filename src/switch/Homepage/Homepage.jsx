@@ -19,20 +19,32 @@ const Homepage = () => {
     </section>
   ) : (
     <section>
-      {console.log(homepageArticles, "in the homepage")}
+      {/* {console.log(homepageArticles, "in the homepage")} */}
+      <h2 className="title">Latest articles</h2>
       <ul>
         {homepageArticles.map((article) => {
           return (
-            <li className="article-list-item">
-              <Link to={`/articles/id/${article.article_id}`}>
+            <li className="article-card">
+              <Link
+                to={`/articles/id/${article.article_id}`}
+                className="article-card"
+              >
                 <img
                   width="90%"
                   src={slugImages[article.topic]}
                   alt={article.title}
                 />
-                <h2>{article.title}</h2>
-                <p>Topic: {article.topic}</p>
-                <p>Created at: {article.created_at}</p>
+                <div className="card-text">
+                  <h3>{article.title}</h3>
+                  <p>Topic: {article.topic}</p>
+                  {/* sort out time since creation here */}
+                  {/* <p>
+                    {() => {
+                      const date = new Date(article.created_at);
+                      return date.getTime();
+                    }}
+                  </p> */}
+                </div>
               </Link>
             </li>
           );
