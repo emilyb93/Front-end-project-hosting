@@ -87,8 +87,9 @@ const Topics = () => {
                     width="70%"
                   />
                   <div className="card-text">
-                    <p>{article.title}</p>
+                    <p className="article-title">{article.title}</p>
                     <p>| {article.topic} |</p>
+                    <p>{article.created_at.split("T")[0]}</p>
                     {/* <p>Votes: {article.votes}</p> */}
                   </div>
                 </Link>

@@ -48,8 +48,8 @@ export const Votes = ({comment_id, votes})=>{
     const [voteChange, setVoteChange] = useState(0)
 
 
-return<>
-<p className="vote-count"> {votes + voteChange}</p> <button className="vote-button-down"
+return<span className="vote-system">
+  <button className="vote-button-down"
 onClick={() => {
   setVoteChange((voteChange) => {
     return voteChange - 1;
@@ -61,8 +61,10 @@ onClick={() => {
 >
 ↓
 </button>
+<p className={`vote-count ${votes > 0 && "green"} ${votes < 0 && "red"}`}> {votes + voteChange}</p>
 <button className="vote-button-up"
 onClick={() => {
+    
   setVoteChange((voteChange) => {
     return voteChange + 1;
   });
@@ -73,7 +75,7 @@ onClick={() => {
 >
 ↑
 </button>
-</>
+</span>
 }
 
 

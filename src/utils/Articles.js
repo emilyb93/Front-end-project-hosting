@@ -19,12 +19,12 @@ const fetchAllSlugs = async ()=>{
 export const useArticles = ()=>{
 
 
-        const [allArticles, setAllArticles] = useState(null);
+        const [allArticles, setAllArticles] = useState([]);
         const [loading, setLoading] = useState(true)
         const [err, setErr] = useState(null)
-        const [allSlugs, setAllSlugs] = useState(null)
-        try{ useEffect(() => {
-            setErr(null)
+        const [allSlugs, setAllSlugs] = useState([])
+        useEffect(() => {
+            try{  setErr(null)
             setLoading(true)
             fetchAllSlugs().then((res)=>{
                 setAllSlugs(res)
@@ -33,12 +33,12 @@ export const useArticles = ()=>{
 
                 setAllArticles(res);
                 setLoading(false)
-            })
-        }, [])}
-        catch(err){
-            console.log(err, "error")
-            setErr(err)
-        };
+            })}
+            catch(err){
+                console.log(err, "error")
+                setErr(err)
+            };
+        }, [])
 
         return {allArticles, loading, err, allSlugs}
     

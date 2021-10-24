@@ -9,10 +9,15 @@ const Header = () => {
     <header className="header-container">
       <div className="header-bar">
         <h1 className="header-text">NC NEWS</h1>
+
         <Link to="/account">
           <img
-            class="profile-pic"
-            src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
+            className="profile-pic"
+            src={
+              localStorage["avatar-url"]
+                ? localStorage["avatar-url"]
+                : "https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
+            }
             width="50rem"
             alt="account-link"
           />
@@ -29,7 +34,7 @@ const Header = () => {
       </div>
       {enableMenu && (
         <nav className="navbar">
-          <ul>
+          <ul className="navbar">
             <li className="nav-list">
               <Link
                 className="nav-link"

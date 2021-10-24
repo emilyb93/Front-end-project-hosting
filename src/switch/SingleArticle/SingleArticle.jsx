@@ -16,14 +16,14 @@ const SingleArticle = () => {
   if (loading) return <p>Loading ...</p>;
   return (
     <>
-      <section>
+      <section className="article-page">
+        <h2>{article.title}</h2>
         <img
           src={slugImages[article.topic]}
           alt={article.title}
-          width="100vw"
+          width="10vw"
           className="article-image"
         />
-        <h2>{article.title}</h2>
         <p className="article-body">{article.body}</p>
         <ArticleVotes article_id={article.article_id} votes={article.votes} />
       </section>
@@ -40,9 +40,13 @@ const SingleArticle = () => {
           {comments.map((comment) => {
             return (
               <li key={comment.comment_id} className="comment-card">
-                <p className="comment-author">Author: {comment.author} </p>
+                <span>
+                  <p className="comment-author">{comment.author} </p>
+                  <p className="comment-date">
+                    {comment.created_at.split("T")[0]}
+                  </p>
+                </span>
                 <p className="comment-text">{comment.body}</p>
-                <p>{Date(comment.created_at)}</p>
 
                 <Votes
                   className="votes"

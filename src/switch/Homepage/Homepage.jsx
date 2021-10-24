@@ -5,11 +5,11 @@ import "./Homepage.css";
 import { Link } from "react-router-dom";
 
 const Homepage = () => {
-  const [homepageArticles, sethomepageArticle] = useState([]);
+  const [homepageArticles, sethomepageArticles] = useState([]);
 
   useEffect(() => {
     fetchLatestArticles().then((articleList) => {
-      sethomepageArticle(articleList);
+      sethomepageArticles(articleList);
     });
   }, []);
 
@@ -24,7 +24,7 @@ const Homepage = () => {
       <ul>
         {homepageArticles.map((article) => {
           return (
-            <li className="article-card">
+            <li key={article.title}>
               <Link
                 to={`/articles/id/${article.article_id}`}
                 className="article-card"
@@ -38,12 +38,7 @@ const Homepage = () => {
                   <h3>{article.title}</h3>
                   <p>Topic: {article.topic}</p>
                   {/* sort out time since creation here */}
-                  {/* <p>
-                    {() => {
-                      const date = new Date(article.created_at);
-                      return date.getTime();
-                    }}
-                  </p> */}
+                  <p>{article.created_at.split("T")[0]}</p>
                 </div>
               </Link>
             </li>

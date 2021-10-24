@@ -2,31 +2,38 @@
 
 .header-container {
   background-color: #46494f;
-  /* width: 100vw; */
   display: grid;
-  /* position: fixed; */
-  height: 15vh;
+  grid-template-columns: 100%;
+
+  align-content: center;
+  justify-content: center;
+  min-height: 15vh;
+  max-height: 15vh;
   width: 100vw;
   font-size: 1rem;
   font-family: "Radley", serif;
 
   justify-items: stretch;
   color: #f4f4f9;
-  /* overflow: hidden; */
-  position: fixed;
+  position: sticky;
   top: 0;
 }
 
 .header-bar {
   align-items: center;
-  height: 15vh;
+  height: 100%;
   /* grid-area: header-bar; */
   display: grid;
-  grid-template-columns: 3fr 1fr 15vh;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-content: center;
+  justify-items: center;
   /* grid-area: "header-text pfp menu-button"; */
 }
 
 .header-text {
+  align-self: center;
+  justify-self: center;
+  font-size: 2em;
   grid-column: 1 / span 1;
 }
 .profile-pic {
@@ -42,13 +49,31 @@
   background-color: rgb(37, 31, 31);
   color: #f4f4f9;
   grid-column: 3 / span 1;
-  height: 15vh;
+  max-height: 4rem;
+  max-width: 4rem;
+  font-size: 3rem;
+  justify-self: center;
   display: fixed;
   left: 0;
   height: 6rem;
   width: 6rem;
 }
+
+@keyframes growNavbar {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 25vh;
+  }
+}
+
 nav {
+  animation: 0.2s ease-in 0s 1 growNavbar;
+
+  position: fixed;
+  top: 15vh;
+  right: 0;
   color: black;
   background-color: #46494f;
   grid-area: nav;
@@ -59,7 +84,10 @@ nav {
 
 .nav-list {
   background-color: #596656;
-  width: 100%;
+  width: 15rem;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  /* margin-bottom: 0px; */
 }
 
 .nav-link {

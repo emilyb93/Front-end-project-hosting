@@ -37,8 +37,3 @@ img {
   border: 1px solid black;
   margin-left: 1rem;
 }
-.card-text {
-  margin-right: 1rem;
-  grid-column: 3 / span 1;
-  text-decoration: none;
-}
