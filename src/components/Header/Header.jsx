@@ -43,7 +43,7 @@ const Header = () => {
                   setEnableMenu(false);
                 }}
               >
-                <button class="nav-link"> Home </button>
+                <button className="nav-link"> Home </button>
               </Link>
             </li>
             <li className="nav-list">
@@ -54,7 +54,7 @@ const Header = () => {
                   setEnableMenu(false);
                 }}
               >
-                <button class="nav-link">Articles</button>
+                <button className="nav-link">Articles</button>
               </Link>
             </li>
             <li className="nav-list">
@@ -65,7 +65,7 @@ const Header = () => {
                   setEnableMenu(false);
                 }}
               >
-                <button class="nav-link">Account</button>
+                <button className="nav-link">Account</button>
               </Link>
             </li>
           </ul>

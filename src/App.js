@@ -26,7 +26,6 @@ function App() {
       <Route exact path="/">
       <Homepage />
       </Route>
-      
       <Route exact path="/articles/:topic">
         <Topics />
       </Route>

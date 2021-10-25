@@ -1,10 +1,19 @@
 .account-page {
-  min-height: 100vh;
+  /* min-height: 65vh; */
+  height: 100vh;
   overflow: hidden;
-  padding-top: 10vh;
-  padding-bottom: 10vh;
+  /* display: block; */
+  /* padding-bottom: 10vh; */
+  margin: auto;
 }
 
 .avatar {
   border-radius: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 80vw;
+}
+
+.log-out {
+  font-size: 2rem;
 }

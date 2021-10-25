@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../../utils/Context";
 import { userExists } from "../../utils/Account";
-import { useLogIn } from "../../Hooks/LogIn";
+import "./Account.css";
 
 const Account = () => {
   const { user, loggedIn, setUser, avatar, trueName } = useContext(UserContext);
@@ -11,9 +11,12 @@ const Account = () => {
     return (
       <section className="account-page" scroll="no">
         <img src={avatar} alt="avatar" className="avatar" />
-        <p>Logged in as {user}</p>
+        <p>
+          Logged in as <b>{user}</b>
+        </p>
         <p>Name: {trueName}</p>
         <button
+          className="log-out"
           onClick={(e) => {
             e.preventDefault();
             setUser(null);

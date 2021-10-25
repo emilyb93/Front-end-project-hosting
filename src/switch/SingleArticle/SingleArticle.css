@@ -1,5 +1,8 @@
+/* article layout */
+
 .article-page {
   margin: auto 5vw;
+  height: auto;
 }
 .article-image {
   width: 50vw;
@@ -9,12 +12,16 @@
 .article-body {
   margin: auto 5vw;
 }
+
+/* post comment box */
+
+/* posted comments */
 .comment-card {
   border-bottom: 1px solid grey;
   display: grid;
 
   grid-template-columns: 100%;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr;
 
   font-size: 1rem;
 }
@@ -27,15 +34,18 @@
   font-size: 1rem;
   justify-self: center;
   font-weight: bold;
+  width: 3rem;
 }
 
 .vote-button-up {
   align-self: center;
   font-size: 3rem;
+  width: 1.5em;
 }
 .vote-button-down {
   align-self: center;
   font-size: 3rem;
+  width: 1.5em;
 }
 
 .comment-author {
@@ -53,7 +63,8 @@
 .vote-system {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .red {
   color: red;

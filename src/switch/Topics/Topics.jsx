@@ -37,32 +37,16 @@ const Topics = () => {
               setSelectedOption(e.target.value);
             }}
           >
-            <option
-              selected={() => {
-                setSelectedOption("/all");
-              }}
-              value="/all"
-            >
-              All
-            </option>
+            <option value="/all">All</option>
             {allSlugs.map((slug) => {
-              return (
-                <option
-                  selected={(e) => {
-                    setSelectedOption(`/${slug.slug}`);
-                  }}
-                  value={`/${slug.slug}`}
-                >
-                  {slug.slug}
-                </option>
-              );
+              return <option value={`/${slug.slug}`}>{slug.slug}</option>;
             })}
           </select>
           <p>Sort articles by: </p>
           <select
             value={sortBy}
             onChange={(e) => {
-              console.log("sort by", e.target.value);
+              // console.log("sort by", e.target.value);
               setSortBy(() => {
                 return e.target.value;
               });
@@ -75,7 +59,7 @@ const Topics = () => {
         <ul>
           {topicArticles.map((article) => {
             return (
-              <li>
+              <li key={Math.random() + Math.random()}>
                 {" "}
                 <Link
                   className="article-card"
@@ -90,7 +74,7 @@ const Topics = () => {
                     <p className="article-title">{article.title}</p>
                     <p>| {article.topic} |</p>
                     <p>{article.created_at.split("T")[0]}</p>
-                    {/* <p>Votes: {article.votes}</p> */}
+                    <p>Votes: {article.votes}</p>
                   </div>
                 </Link>
               </li>
