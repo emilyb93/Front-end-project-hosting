@@ -17,6 +17,7 @@
   color: #f4f4f9;
   position: sticky;
   top: 0;
+  z-index: 1;
 }
 
 .header-bar {
@@ -34,13 +35,16 @@
 
 .acc-nav {
   grid-column: 2 / span 1;
+  justify-self: right;
+  margin-right: 2rem;
 }
 
 .header-text {
-  align-self: center;
-  justify-self: center;
-  font-size: 2em;
+  align-self: left;
+  justify-self: left;
+  font-size: 2rem;
   grid-column: 1 / span 1;
+  margin-left: 1rem;
 }
 .profile-pic {
   /* grid-column: 2 / span 1; */
@@ -142,4 +146,9 @@
 
 .fadeOut {
   animation: 0.2s ease-in 0s 1 fade;
+}
+
+a {
+  text-decoration: none;
+  color: #f4f4f9;
 }

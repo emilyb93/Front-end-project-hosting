@@ -8,7 +8,9 @@ const Header = () => {
   return (
     <header className="header-container">
       <div className="header-bar">
-        <h1 className="header-text">NC NEWS</h1>
+        <Link to="/">
+          <h1 className="header-text">NC NEWS</h1>
+        </Link>
         <div className="acc-nav">
           <Link to="/account">
             <img
