@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from "../../utils/Context";
 import { userExists } from "../../utils/Account";
 import "./Account.css";
@@ -7,6 +7,9 @@ const Account = () => {
   const { user, loggedIn, setUser, avatar, trueName } = useContext(UserContext);
 
   const [userInput, setUserInput] = useState("");
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (loggedIn)
     return (

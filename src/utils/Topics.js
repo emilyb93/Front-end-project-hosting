@@ -28,6 +28,8 @@ export const useTopics = (topic)=>{
             useEffect(() => {
             setErr(null)
             setLoading(true)
+            window.scrollTo(0, 0);
+
             fetchTopicArticles(topic, sortBy).then((res)=>{
 
                 setAllArticles(res.articles);

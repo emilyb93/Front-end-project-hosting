@@ -18,9 +18,12 @@ export const useSingleArticle = (id)=>{
   useEffect(()=>{
         setErr(null)
         setLoading(true)
+        window.scrollTo(0, 0);
+
        fetchSingleArticle(id).then((res)=>{
            console.log(res.data.article)
            setArticle(res.data.article)
+           
 
        }).catch((err)=>{
            setErr(err)

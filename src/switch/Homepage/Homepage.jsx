@@ -11,6 +11,8 @@ const Homepage = () => {
     fetchLatestArticles().then((articleList) => {
       sethomepageArticles(articleList);
     });
+
+    window.scrollTo(0, 0);
   }, []);
 
   return !homepageArticles ? (

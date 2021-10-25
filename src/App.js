@@ -8,10 +8,13 @@ import SingleArticle from './switch/SingleArticle/SingleArticle';
 import {UserContext} from './utils/Context'
 import {useLogIn} from './Hooks/LogIn'
 import Account from './switch/Account/Account';
+import { useEffect } from 'react';
 function App() {
 
   const {user, loggedIn, avatar, trueName, setUser} = useLogIn()
- 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   
 
  
