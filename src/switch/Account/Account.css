@@ -22,4 +22,6 @@
 .log-out {
   font-size: 2rem;
   width: 5em;
+  background-color: rgb(37, 31, 31);
+  color: #f4f4f9;
 }

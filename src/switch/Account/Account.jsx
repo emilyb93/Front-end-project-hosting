@@ -1,15 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from "../../utils/Context";
-import { userExists } from "../../utils/Account";
+import { userExists, useAccount } from "../../utils/Account";
 import "./Account.css";
 
 const Account = () => {
   const { user, loggedIn, setUser, avatar, trueName } = useContext(UserContext);
 
-  const [userInput, setUserInput] = useState("");
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  const { userInput, setUserInput } = useAccount();
 
   if (loggedIn)
     return (
@@ -41,7 +38,7 @@ const Account = () => {
             // console.log(userInput, "submit");
             e.preventDefault();
 
-            userExists(userInput) ? setUser(userInput) : setUserInput("");
+            userExists(userInput) ? setUser(userInput) : setUser(null);
           }}
         >
           <input

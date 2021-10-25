@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useState, useEffect } from "react";
 
 export const userExists = async (username)=>{
     console.log(username)
@@ -16,5 +17,14 @@ export const userExists = async (username)=>{
     })
 
     return exists
+}
+
+export const useAccount = () =>{ 
+    const [userInput, setUserInput] = useState("");
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return {userInput, setUserInput}
 }
 
