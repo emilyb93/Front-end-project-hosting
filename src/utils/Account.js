@@ -14,6 +14,7 @@ export const userExists = async (username)=>{
 
         exists = false
     })
+
     return exists
 }
 

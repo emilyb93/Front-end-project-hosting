@@ -5,6 +5,7 @@ import "./Account.css";
 
 const Account = () => {
   const { user, loggedIn, setUser, avatar, trueName } = useContext(UserContext);
+
   const [userInput, setUserInput] = useState("");
 
   if (loggedIn)
@@ -34,19 +35,10 @@ const Account = () => {
         <h2>Log In:</h2>
         <form
           onSubmit={(e) => {
-            console.log(userInput, "submit");
-
-            userExists(userInput)
-              ? setUser(() => {
-                  console.log(userInput, "in the cb");
-                  return userInput;
-                })
-              : setUser(() => {
-                  console.log("failed");
-                });
-            console.log("user set to", user);
-            setUserInput("");
+            // console.log(userInput, "submit");
             e.preventDefault();
+
+            userExists(userInput) ? setUser(userInput) : setUserInput("");
           }}
         >
           <input
