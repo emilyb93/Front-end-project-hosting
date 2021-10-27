@@ -5,6 +5,7 @@ import { slugImages } from "../../utils/SlugImages";
 import { Link } from "react-router-dom";
 import { useArticles } from "../../utils/Articles";
 import "./Topics.css";
+import heartList from "../../graphics/heart-list.svg";
 
 const Topics = () => {
   const { topic } = useParams();
@@ -74,7 +75,16 @@ const Topics = () => {
                     <p className="article-title">{article.title}</p>
                     <p>| {article.topic} |</p>
                     <p>{article.created_at.split("T")[0]}</p>
-                    <p>Votes: {article.votes}</p>
+                    <span className="likes">
+                      <img
+                        height="20px"
+                        width="20px"
+                        className="heart-likes"
+                        src={heartList}
+                        alt="likes"
+                      />
+                      <p> {article.votes}</p>
+                    </span>
                   </div>
                 </Link>
               </li>
