@@ -3,6 +3,7 @@ import { fetchLatestArticles } from "../../utils/Homepage";
 import { slugImages } from "../../utils/SlugImages";
 import "./Homepage.css";
 import { Link } from "react-router-dom";
+import heartUnclicked from "../../graphics/heart-unclicked.svg";
 
 const Homepage = () => {
   const [homepageArticles, sethomepageArticles] = useState([]);
@@ -15,7 +16,7 @@ const Homepage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  return !homepageArticles ? (
+  return homepageArticles.length === 0 ? (
     <section>
       <h3>Loading... One Moment Please</h3>
     </section>
@@ -41,6 +42,16 @@ const Homepage = () => {
                   <p>Topic: {article.topic}</p>
                   {/* sort out time since creation here */}
                   <p>{article.created_at.split("T")[0]}</p>
+                  <span className="likes">
+                    <img
+                      height="20px"
+                      width="20px"
+                      src={heartUnclicked}
+                      alt="likes"
+                      className="heart-likes"
+                    />
+                    <p>{article.votes}</p>
+                  </span>
                 </div>
               </Link>
             </li>

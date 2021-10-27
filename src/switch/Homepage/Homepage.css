@@ -41,3 +41,17 @@ img {
   border: 1px solid black;
   margin-left: 1rem;
 }
+
+.heart-likes {
+  border: none;
+  width: 20px;
+  align-self: center;
+  padding-top: 5px;
+  margin-right: 5px;
+}
+
+.likes {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
