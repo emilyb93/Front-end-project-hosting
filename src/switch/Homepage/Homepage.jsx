@@ -3,7 +3,7 @@ import { fetchLatestArticles } from "../../utils/Homepage";
 import { slugImages } from "../../utils/SlugImages";
 import "./Homepage.css";
 import { Link } from "react-router-dom";
-import heartUnclicked from "../../graphics/heart-unclicked.svg";
+import heartList from "../../graphics/heart-list.svg";
 
 const Homepage = () => {
   const [homepageArticles, sethomepageArticles] = useState([]);
@@ -46,7 +46,7 @@ const Homepage = () => {
                     <img
                       height="20px"
                       width="20px"
-                      src={heartUnclicked}
+                      src={heartList}
                       alt="likes"
                       className="heart-likes"
                     />
