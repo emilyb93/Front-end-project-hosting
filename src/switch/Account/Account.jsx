@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { UserContext } from "../../utils/Context";
 import { userExists, useAccount } from "../../utils/Account";
 import "./Account.css";
