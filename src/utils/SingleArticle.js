@@ -34,7 +34,7 @@ export const useSingleArticle = (id) => {
   return { article, loading, err };
 };
 
-const handleArticleVotes = (article_id, num) => {
+export const handleArticleVotes = (article_id, num) => {
   return axios({
     method: "patch",
     url: `https://news-server-project.herokuapp.com/api/articles/${article_id}`,
@@ -42,24 +42,4 @@ const handleArticleVotes = (article_id, num) => {
       inc_votes: num,
     },
   });
-};
-
-export const ArticleVotes = ({ article_id, votes }) => {
-  const [voteChange, setVoteChange] = useState(0);
-
-  return (
-    <>
-      <button
-        onClick={() => {
-          setVoteChange((voteChange) => {
-            return voteChange + 1;
-          });
-
-          handleArticleVotes(article_id, +1);
-        }}
-      >
-        <p className="comment-vote-heart"> {voteChange ? "♥" : "♡"}</p>
-      </button>
-    </>
-  );
 };
