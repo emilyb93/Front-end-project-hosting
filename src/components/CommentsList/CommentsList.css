@@ -1,0 +1,99 @@
+/* posted comments */
+
+.comment-card {
+  border-bottom: 1px solid grey;
+  display: grid;
+
+  grid-template-columns: 100%;
+  grid-template-rows: 0.5fr 1fr 0.3fr;
+
+  font-size: 1rem;
+}
+
+.comment-text {
+  text-align: left;
+  margin: 0.5rem 0.5rem;
+}
+
+.votes {
+  grid-row: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.vote-count {
+  font-size: 1rem;
+  justify-self: center;
+  font-weight: bold;
+  width: 3rem;
+}
+
+.vote-button-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  align-self: center;
+  font-size: 1.7rem;
+  width: 1.5em;
+  height: 1.5em;
+  border: none;
+  background: none;
+}
+.vote-text {
+  align-self: center;
+  width: 100%;
+  height: 100%;
+}
+
+.vote-clicked {
+  font-size: 2.3rem;
+  animation: press-button;
+  animation-duration: 0.2s;
+}
+
+@keyframes press-button {
+  0% {
+    font-size: 100%;
+  }
+  20% {
+    font-size: 60%;
+  }
+  70% {
+    font-size: 70%;
+  }
+  80% {
+    font-size: 80%;
+  }
+  100% {
+    font-size: 100%;
+  }
+}
+.comment-author {
+  font-weight: bold;
+  text-align: left;
+  margin-left: 1rem;
+}
+
+.comment-date {
+  text-align: left;
+  font-size: 0.7rem;
+  margin-left: 1rem;
+}
+
+.vote-system {
+  align-self: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
