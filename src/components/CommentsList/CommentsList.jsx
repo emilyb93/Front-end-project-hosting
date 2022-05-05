@@ -10,7 +10,7 @@ function CommentsList({ id }) {
   const { comments, setComments } = useComments(id);
   return (
     <section className="comment-container">
-      <h3>Comments</h3>
+      <h3 className="comments-header">Comments</h3>
       <PostComment
         article_id={id}
         loggedIn={loggedIn}
@@ -32,6 +32,7 @@ function CommentsList({ id }) {
 
               <Votes
                 className="votes"
+                loggedIn={loggedIn}
                 comment_id={comment.comment_id}
                 votes={comment.votes}
               />

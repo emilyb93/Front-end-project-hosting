@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { handleVotes } from "../../utils/Comments";
 
-export const Votes = ({ comment_id, votes }) => {
+export const Votes = ({ comment_id, votes, loggedIn }) => {
   const [voteChange, setVoteChange] = useState(0);
   const [voteError, setVoteError] = useState(false);
 
@@ -13,6 +13,7 @@ export const Votes = ({ comment_id, votes }) => {
       </p>
       <button
         className={`vote-button-up`}
+        disabled={!loggedIn}
         onClick={() => {
           if (voteChange === 0) {
             setVoteError(false);

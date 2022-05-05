@@ -1,9 +1,10 @@
 import React from "react";
 import { useParams } from "react-router";
 import CommentsList from "../../components/CommentsList/CommentsList";
-import { ArticleVotes, useSingleArticle } from "../../utils/SingleArticle";
+import { useSingleArticle } from "../../utils/SingleArticle";
 import { slugImages } from "../../utils/SlugImages";
 import "./SingleArticle.css";
+import { ArticleVotes } from "../../components/ArticleVotes/ArticleVotes";
 
 const SingleArticle = () => {
   const { id } = useParams();
@@ -26,7 +27,7 @@ const SingleArticle = () => {
         <ArticleVotes article_id={article.article_id} votes={article.votes} />
       </section>
 
-      <CommentsList id={id}></CommentsList>
+      <CommentsList id={id} votes={article.votes}></CommentsList>
     </>
   );
 };
