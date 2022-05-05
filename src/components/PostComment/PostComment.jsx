@@ -40,14 +40,20 @@ export const PostComment = ({ article_id, loggedIn, user, setComments }) => {
 
       {!loggedIn && (
         <p>
-          Please{" "}
+          Something to say? <br></br>
           <Link
             to="/account"
             style={{ color: "blue", textDecoration: "underline" }}
           >
             Log in
           </Link>{" "}
-          to post comments or vote.
+          or{" "}
+          <Link
+            to="/account"
+            style={{ color: "blue", textDecoration: "underline" }}
+          >
+            Sign Up
+          </Link>{" "}
         </p>
       )}
     </>
