@@ -9,16 +9,17 @@ export const ArticleVotes = ({ article_id, votes }) => {
 
   return (
     <div className="article-voter">
-      <p>{votes}</p>
+      <p>{votes + voteChange}</p>
       <button
         className="article-vote-button"
         disabled={!loggedIn}
         onClick={() => {
+          const votecrement = voteChange === 0 ? 1 : -1;
           setVoteChange((voteChange) => {
-            return voteChange + 1;
+            return voteChange + votecrement;
           });
 
-          handleArticleVotes(article_id, +1);
+          handleArticleVotes(article_id, votecrement);
         }}
       >
         <p className={`vote-button-up ${voteChange ? "vote-clicked" : ""}`}>

@@ -24,25 +24,24 @@ const Homepage = () => {
     <section>
       {/* {console.log(homepageArticles, "in the homepage")} */}
       <h2 className="title">Latest articles</h2>
-      <ul>
+      <ul className="article-card-list-container">
         {homepageArticles.map((article) => {
           return (
-            <li key={article.title}>
+            <li className="article-card-container" key={article.title}>
               <Link
                 to={`/articles/id/${article.article_id}`}
                 className="article-card"
               >
                 <img
-                  width="90%"
+                  className="article-card-image"
                   src={slugImages[article.topic]}
                   alt={article.title}
                 />
                 <div className="card-text">
                   <h3>{article.title}</h3>
                   <p>Topic: {article.topic}</p>
-                  {/* sort out time since creation here */}
                   <p>{article.created_at.split("T")[0]}</p>
-                  <span className="likes">
+                  <div className="likes">
                     <img
                       height="20px"
                       width="20px"
@@ -50,8 +49,8 @@ const Homepage = () => {
                       alt="likes"
                       className="heart-likes"
                     />
-                    <p>{article.votes}</p>
-                  </span>
+                    <p className="article-vote-count">{article.votes}</p>
+                  </div>
                 </div>
               </Link>
             </li>
